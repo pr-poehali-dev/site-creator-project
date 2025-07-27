@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 
 export default function Index() {
   const [darkMode, setDarkMode] = useState(false);
+  const [showPhonePanel, setShowPhonePanel] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -70,13 +71,13 @@ export default function Index() {
       {/* Header */}
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
             <img 
-              src="https://cdn.poehali.dev/files/09ee422b-461f-49a5-b830-8c7e6bba5db3.png" 
+              src={darkMode ? "https://cdn.poehali.dev/files/14ffddcc-2ab1-4c01-a997-93c73df32bdd.png" : "https://cdn.poehali.dev/files/e93460e3-b374-4e87-998b-5cb32aba7d18.png"}
               alt="Логотип" 
-              className="w-8 h-8 object-contain"
+              className="w-16 h-16 object-contain"
             />
-            <span className="text-xl font-heading font-bold">Студия Ибрагимова Юсуфа</span>
+            <span className="text-2xl font-heading font-bold">Студия Ибрагимова Юсуфа</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
@@ -118,9 +119,9 @@ export default function Index() {
         <div className="container mx-auto text-center">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-black mb-6 leading-tight">
-              <span className="text-primary block mb-2">ОПЫТ 6 ЛЕТ,</span>
-              <span className="block">А РЕЗУЛЬТАТ</span>
-              <span className="text-primary block">КАК У БОГОВ</span>
+              <span className="text-primary block mb-2">ПОКА ОНИ ПЫЛИЛИСЬ,</span>
+              <span className="block">МЫ СТРОИЛИ.</span>
+              <span className="text-primary block">6 ЛЕТ.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Пока другие годами топчутся на месте, мы за пару дней создаем сайты, 
@@ -320,10 +321,10 @@ export default function Index() {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-6"
-              onClick={() => window.open('tel:+79785302780', '_self')}
+              onClick={() => setShowPhonePanel(true)}
             >
               <Icon name="Phone" size={20} className="mr-2" />
-              +7 978 530-27-80
+              Позвонить
             </Button>
           </div>
         </div>
@@ -332,8 +333,8 @@ export default function Index() {
       {/* Footer */}
       <footer className="bg-background border-t border-border py-8 px-4">
         <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Icon name="Code" size={24} className="text-primary" />
+          <div className="flex items-center justify-center space-x-4 mb-4">
+            <img \n              src={darkMode ? "https://cdn.poehali.dev/files/14ffddcc-2ab1-4c01-a997-93c73df32bdd.png" : "https://cdn.poehali.dev/files/e93460e3-b374-4e87-998b-5cb32aba7d18.png"}\n              alt="Логотип" \n              className="w-10 h-10 object-contain"\n            />
             <span className="text-xl font-heading font-bold">Студия Ибрагимова Юсуфа</span>
           </div>
           <div className="text-muted-foreground mb-4 space-y-3">
@@ -369,14 +370,74 @@ export default function Index() {
             <Button 
               variant="ghost" 
               size="sm"
-              onClick={() => window.open('tel:+79785302780', '_self')}
+              onClick={() => setShowPhonePanel(true)}
             >
               <Icon name="Phone" size={16} className="mr-2" />
-              +7 978 530-27-80
+              Позвонить
             </Button>
           </div>
         </div>
       </footer>
+
+      {/* Phone Panel Overlay */}
+      {showPhonePanel && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-background border border-border rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-scale-in">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Icon name="Phone" size={40} className="text-primary" />
+              </div>
+              
+              <h3 className="text-2xl font-heading font-bold mb-4">Связаться с нами</h3>
+              
+              <div className="space-y-4 mb-6">
+                <div className="bg-secondary/50 rounded-lg p-4">
+                  <p className="text-sm text-muted-foreground mb-2">Телефон для звонков</p>
+                  <div className="flex items-center justify-center space-x-3">
+                    <Icon name="Phone" size={20} className="text-primary" />
+                    <span className="text-xl font-bold font-mono">+7 978 530-27-80</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">Ежедневно с 9:00 до 19:00</p>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-4">
+                  <p className="text-sm text-muted-foreground mb-2">Telegram (24/7)</p>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => {
+                      window.open('https://t.me/IbragimovYusuf', '_blank');
+                      setShowPhonePanel(false);
+                    }}
+                  >
+                    <Icon name="MessageCircle" size={16} className="mr-2" />
+                    Написать в Telegram
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="flex gap-3">
+                <Button 
+                  className="flex-1"
+                  onClick={() => {
+                    window.open('tel:+79785302780', '_self');
+                    setShowPhonePanel(false);
+                  }}
+                >
+                  <Icon name="Phone" size={16} className="mr-2" />
+                  Позвонить
+                </Button>
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowPhonePanel(false)}
+                >
+                  <Icon name="X" size={16} />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
