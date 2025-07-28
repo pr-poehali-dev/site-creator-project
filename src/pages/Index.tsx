@@ -388,7 +388,7 @@ export default function Index() {
                 <Icon name="Phone" size={40} className="text-primary" />
               </div>
               
-              <h3 className="text-2xl font-heading font-bold mb-4">Связаться с нами</h3>
+              <h3 className="text-2xl font-bold mb-4">Связаться с нами</h3>
               
               <div className="space-y-4 mb-6">
                 <div className="bg-secondary/50 rounded-lg p-4">
