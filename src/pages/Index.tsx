@@ -72,12 +72,7 @@ export default function Index() {
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
-            <img 
-              src={darkMode ? "https://cdn.poehali.dev/files/14ffddcc-2ab1-4c01-a997-93c73df32bdd.png" : "https://cdn.poehali.dev/files/e93460e3-b374-4e87-998b-5cb32aba7d18.png"}
-              alt="Логотип" 
-              className="w-16 h-16 object-contain"
-            />
-            <span className="text-2xl font-heading font-bold">Студия Ибрагимова Юсуфа</span>
+            <span className="text-2xl font-bold">Студия Ибрагимова Юсуфа</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
@@ -334,8 +329,7 @@ export default function Index() {
       <footer className="bg-background border-t border-border py-8 px-4">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-4 mb-4">
-            <img \n              src={darkMode ? "https://cdn.poehali.dev/files/14ffddcc-2ab1-4c01-a997-93c73df32bdd.png" : "https://cdn.poehali.dev/files/e93460e3-b374-4e87-998b-5cb32aba7d18.png"}\n              alt="Логотип" \n              className="w-10 h-10 object-contain"\n            />
-            <span className="text-xl font-heading font-bold">Студия Ибрагимова Юсуфа</span>
+            <span className="text-xl font-bold">Студия Ибрагимова Юсуфа</span>
           </div>
           <div className="text-muted-foreground mb-4 space-y-3">
             <p>Профессиональная веб-разработка с 2018 года</p>
